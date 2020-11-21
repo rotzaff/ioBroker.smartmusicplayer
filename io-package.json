@@ -1,0 +1,72 @@
+{
+	"common": {
+		"name": "smartmusicplayer",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "SmartMusicPlayer",
+		"titleLang": {
+			"en": "SmartMusicPlayer",
+			"de": "SmartMusicPlayer",
+			"ru": "SmartMusicPlayer",
+			"pt": "SmartMusicPlayer",
+			"nl": "SmartMusicPlayer",
+			"fr": "SmartMusicPlayer",
+			"it": "SmartMusicPlayer",
+			"es": "SmartMusicPlayer",
+			"pl": "SmartMusicPlayer",
+			"zh-cn": "SmartMusicPlayer"
+		},
+		"desc": {
+			"en": "smartmusicplayer",
+			"de": "smartmusicplayer",
+			"ru": "умный музыкант",
+			"pt": "smartplayer de música",
+			"nl": "smartmusicplayer",
+			"fr": "smartmusicplayer",
+			"it": "smartmusicplayer",
+			"es": "reproductor de música inteligente",
+			"pl": "smartmusicplayer",
+			"zh-cn": "聪明的音乐播放器"
+		},
+		"authors": ["rotzaff <rotzaff88@gmail.com>"],
+		"keywords": ["ioBroker", "template", "Smart Home", "home automation"],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "build/main.js",
+		"icon": "smartmusicplayer.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/rotzaff/ioBroker.smartmusicplayer/master/admin/smartmusicplayer.png",
+		"readme": "https://github.com/rotzaff/ioBroker.smartmusicplayer/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "multimedia",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
