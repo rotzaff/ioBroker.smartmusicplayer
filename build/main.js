@@ -53,19 +53,206 @@ class Smartmusicplayer extends utils.Adapter {
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
         */
-        await this.setObjectNotExistsAsync('testVariable', {
+        // await this.setObjectNotExistsAsync('testVariable', {
+        // 	type: 'state',
+        // 	common: {
+        // 		name: 'testVariable',
+        // 		type: 'boolean',
+        // 		role: 'indicator',
+        // 		read: true,
+        // 		write: true,
+        // 	},
+        // 	native: {},
+        // });
+        await this.setObjectNotExistsAsync('devices.device1', {
             type: 'state',
             common: {
-                name: 'testVariable',
+                name: 'device1',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        // Generals
+        await this.setObjectNotExistsAsync('General.activeAlexa', {
+            type: 'state',
+            common: {
+                name: 'activeAlexa',
+                type: 'string',
+                role: 'value',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.currentState', {
+            type: 'state',
+            common: {
+                name: 'currentState',
                 type: 'boolean',
                 role: 'indicator',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.currentTitle', {
+            type: 'state',
+            common: {
+                name: 'currentTitle',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.imageURL', {
+            type: 'state',
+            common: {
+                name: 'imageURL',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.imageURL', {
+            type: 'state',
+            common: {
+                name: 'imageURL',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.playlistToPlay', {
+            type: 'state',
+            common: {
+                name: 'playlistToPlay',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.songToPlay', {
+            type: 'state',
+            common: {
+                name: 'songToPlay',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('General.searchOption', {
+            type: 'state',
+            common: {
+                name: 'searchOption',
+                type: 'string',
+                role: 'text',
+                def: '',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        // Controls
+        await this.setObjectNotExistsAsync('Control.controlForward', {
+            type: 'state',
+            common: {
+                name: 'controlForward',
+                type: 'boolean',
+                role: 'button',
+                def: 'false',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('Control.controlNext', {
+            type: 'state',
+            common: {
+                name: 'controlNext',
+                type: 'boolean',
+                role: 'button',
+                def: 'false',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('Control.controlPause', {
+            type: 'state',
+            common: {
+                name: 'controlPause',
+                type: 'boolean',
+                role: 'button',
+                def: 'false',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('Control.controlPlay', {
+            type: 'state',
+            common: {
+                name: 'controlPlay',
+                type: 'boolean',
+                role: 'button',
+                def: 'false',
+                read: true,
+                write: true,
+            },
+            native: {},
+        });
+        await this.setObjectNotExistsAsync('Control.controlPrevious', {
+            type: 'state',
+            common: {
+                name: 'controlPrevious',
+                type: 'boolean',
+                role: 'button',
+                def: 'false',
                 read: true,
                 write: true,
             },
             native: {},
         });
         // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        this.subscribeStates('testVariable');
+        // Generals subs
+        this.subscribeStates('devices.device1');
+        this.subscribeStates('General.activeAlexa');
+        this.subscribeStates('devices.currentState');
+        this.subscribeStates('devices.currentTitle');
+        this.subscribeStates('devices.imageURL');
+        this.subscribeStates('devices.musicInput');
+        this.subscribeStates('devices.playlistToPlay');
+        this.subscribeStates('devices.songToPlay');
+        this.subscribeStates('devices.searchOption');
+        // Controll subs
+        this.subscribeStates('control.controlForward');
+        this.subscribeStates('control.controlNext');
+        this.subscribeStates('control.controlPause');
+        this.subscribeStates('control.controlPlay');
+        this.subscribeStates('control.controlPrevious');
+        // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
+        // this.subscribeStates('testVariable');
         // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
         // this.subscribeStates('lights.*');
         // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
@@ -75,17 +262,17 @@ class Smartmusicplayer extends utils.Adapter {
             you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
         */
         // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
+        // await this.setStateAsync('testVariable', true);
         // same thing, but the value is flagged "ack"
         // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
+        // await this.setStateAsync('testVariable', { val: true, ack: true });
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
+        // await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
         // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw iobroker: ' + result);
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
+        // let result = await this.checkPasswordAsync('admin', 'iobroker');
+        // this.log.info('check user admin pw iobroker: ' + result);
+        // result = await this.checkGroupAsync('admin', 'admin');
+        // this.log.info('check group user admin group admin: ' + result);
     }
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
